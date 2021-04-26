@@ -1,0 +1,4 @@
+.numpad {
+  display: flex;
+  flex-direction: column;
+}
