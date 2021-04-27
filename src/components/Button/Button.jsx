@@ -38,7 +38,7 @@ const Button = ({ text, sets, gets }) => {
       if (text === 'C') {
         sets.setLastOp('+')
         sets.setLastNumber(0)
-        sets.setLastType('op')
+        sets.setLastType('eq')
         pantalla.innerHTML = ''
       } else if (text === '⁺∕₋') {
         const newNum = -operate(gets.lastNumber, parseFloat(pantalla.innerHTML, 10), gets.lastOp)
