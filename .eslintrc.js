@@ -22,4 +22,12 @@ module.exports = {
   rules: {
     semi: ['error', 'never'],
   },
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        'react/no-array-index-key': 'off',
+      },
+    },
+  ],
 }

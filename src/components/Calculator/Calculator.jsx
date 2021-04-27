@@ -1,45 +1,23 @@
 import React from 'react'
 import Button from '../Button'
 
+import './Calculator.css'
+
 const Calculator = () => {
-  const [, setLastNumber] = React.useState(0)
-  const [, setLastOp] = React.useState('+')
+  const [lastNumber, setLastNumber] = React.useState(0)
+  const [lastOp, setLastOp] = React.useState('+')
+  const [lastType, setLastType] = React.useState('eq')
   return (
-    <div>
-      <div id="pantalla" />
+    <div className="calculator">
+      <div className="display">
+        <span id="pantalla" />
+      </div>
       <div className="botones">
         <div className="numpad">
-          <div>
-            <Button text="C" sets={{ setLastNumber, setLastOp }} />
-            <Button text="⁺∕₋" sets={{ setLastNumber, setLastOp }} />
-            <Button text="%" sets={{ setLastNumber, setLastOp }} />
-          </div>
-          <div className="fila">
-            <Button text="7" />
-            <Button text="8" />
-            <Button text="9" />
-          </div>
-          <div className="fila">
-            <Button text="4" />
-            <Button text="5" />
-            <Button text="6" />
-          </div>
-          <div className="fila">
-            <Button text="1" />
-            <Button text="2" />
-            <Button text="3" />
-          </div>
-          <div>
-            <Button text="0" />
-            <Button text="." />
-          </div>
+          {['C', '⁺∕₋', '%', '7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'].map((text, index) => <Button key={index} text={text} sets={{ setLastNumber, setLastOp, setLastType }} gets={{ lastNumber, lastOp, lastType }} />)}
         </div>
-        <div>
-          <Button text="/" sets={{ setLastNumber, setLastOp }} />
-          <Button text="*" sets={{ setLastNumber, setLastOp }} />
-          <Button text="-" sets={{ setLastNumber, setLastOp }} />
-          <Button text="+" sets={{ setLastNumber, setLastOp }} />
-          <Button text="=" sets={{ setLastNumber, setLastOp }} />
+        <div className="operadores">
+          {['/', '*', '-', '+', '='].map((text, index) => <Button key={index} text={text} sets={{ setLastNumber, setLastOp, setLastType }} gets={{ lastNumber, lastOp, lastType }} />)}
         </div>
       </div>
     </div>

@@ -14,8 +14,16 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
-        type: 'asset/resource',
+        test: /\.(TTF)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
     ],
   },
@@ -35,11 +43,13 @@ module.exports = {
       <html>
         <head>
           <title>Calculadora</title>
+          <meta charset="UTF-8">
         </head>
         <body>
           <div id="root"></div>
         </body>
       </html>
     `,
+    favicon: './src/calculator-flat.png',
   })],
 }
